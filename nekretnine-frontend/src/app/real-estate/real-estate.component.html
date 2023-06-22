@@ -1,0 +1,173 @@
+<h1 mat-dialog-title fxLayoutAlign="center center">Izmena oglasa</h1>
+<div fxLayoutAlign="space-between">
+  <button mat-button [mat-dialog-close]="true">
+    <mat-icon matListIcon>close</mat-icon>
+  </button>
+
+</div>
+
+
+<mat-dialog-content>
+  <form fxLayout="column" fxLayoutGap="2vh" (ngSubmit)="finishEditing()">
+    <!-- Category -->
+    <mat-card>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
+
+        <mat-form-field appearance="fill">
+          <mat-label>Kategorija</mat-label>
+          <mat-select name="category" [(ngModel)]="this.advertForEditing.category" matInput ngModel required
+            [(value)]="this.advertForEditing.category">
+            <mat-option value="Kuća">Kuća</mat-option>
+            <mat-option value="Stan">Stan</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-card>
+
+    <!-- Advert type -->
+    <mat-card>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
+
+        <mat-form-field appearance="fill">
+          <mat-label>Tip oglasa</mat-label>
+          <mat-select name="advertType" [(ngModel)]="this.advertForEditing.advertType" matInput ngModel required
+            [(value)]="this.advertForEditing.advertType">
+            <mat-option value="Prodaja">Prodaja</mat-option>
+            <mat-option value="Izdavanje">Izdavanje</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-card>
+
+    <mat-card>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Naziv" ngModel name="title" [(ngModel)]="this.advertForEditing.title"
+            required #titleInput="ngModel">
+        </mat-form-field>
+
+      </div>
+    </mat-card>
+
+    <mat-card>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Lokacija" ngModel name="location"
+            [(ngModel)]="this.advertForEditing.location" required #locInput="ngModel">
+        </mat-form-field>
+
+      </div>
+    </mat-card>
+
+    <mat-card>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="50vw">
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Opis" ngModel name="description"
+            [(ngModel)]="this.advertForEditing.description" required #descInput="ngModel">
+        </mat-form-field>
+
+      </div>
+    </mat-card>
+
+    <mat-card>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
+
+        <mat-form-field>
+          <input type="number" step="1000" matInput placeholder="Cena nekretnine (u €)" ngModel name="price"
+            [(ngModel)]="this.advertForEditing.price" required #priceInput="ngModel">
+        </mat-form-field>
+
+      </div>
+    </mat-card>
+
+    <mat-card>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
+
+        <mat-form-field>
+          <input type="number" step="1000" matInput placeholder="Kvadratura (u m²)" ngModel name="quadrature"
+            [(ngModel)]="this.advertForEditing.quadrature" required #quadratureInput="ngModel">
+        </mat-form-field>
+
+      </div>
+    </mat-card>
+
+    <mat-card>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
+
+        <mat-form-field>
+          <input type="number" step="1000" matInput placeholder="Broj soba" ngModel name="numOfRooms"
+            [(ngModel)]="this.advertForEditing.numOfRooms" required #roomInput="ngModel">
+        </mat-form-field>
+
+      </div>
+    </mat-card>
+
+    <mat-card>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
+
+
+        <mat-form-field>
+          <input type="text" matInput placeholder="Grejanje" ngModel name="heating"
+            [(ngModel)]=" this.advertForEditing.heating" required #heatingInput="ngModel">
+        </mat-form-field>
+
+      </div>
+    </mat-card>
+
+    <mat-card>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
+
+        <mat-form-field>
+          <input type="text" matInput placeholder="Broj spratova" ngModel name="numOfFloor"
+            [(ngModel)]="this.advertForEditing.numOfFloor" required #floorInput="ngModel">
+        </mat-form-field>
+
+      </div>
+    </mat-card>
+
+    <mat-card>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw" fxLayoutGap="25px">
+
+        <mat-checkbox ngModel name="isRegistered" [(ngModel)]="this.advertForEditing.isRegistered">Uknjižen
+        </mat-checkbox>
+        <mat-checkbox ngModel name="isOnALot" [(ngModel)]="this.advertForEditing.isOnALot">Na placu</mat-checkbox>
+        <mat-checkbox ngModel name="isPermitted" [(ngModel)]="this.advertForEditing.isPermitted">Dozvola za gradnju
+        </mat-checkbox>
+        <mat-checkbox ngModel name="hasElevator" [(ngModel)]="this.advertForEditing.hasElevator">Lift</mat-checkbox>
+        <mat-checkbox ngModel name="hasTerrace" [(ngModel)]="this.advertForEditing.hasTerrace">Terasa</mat-checkbox>
+
+      </div>
+    </mat-card>
+
+    <mat-card>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw" fxLayoutGap="25px">
+        <mat-checkbox ngModel name="hasParking" [(ngModel)]="this.advertForEditing.hasParking">Parking</mat-checkbox>
+        <mat-checkbox ngModel name="hasCableTv" [(ngModel)]="this.advertForEditing.hasCableTv">Kablovska TV
+        </mat-checkbox>
+        <mat-checkbox ngModel name="hasInternet" [(ngModel)]="this.advertForEditing.hasInternet">Internet
+        </mat-checkbox>
+        <mat-checkbox ngModel name="hasPhone" [(ngModel)]="this.advertForEditing.hasPhone">Telefon</mat-checkbox>
+        <mat-checkbox ngModel name="hasIntercom" [(ngModel)]="this.advertForEditing.hasIntercom">Interfon
+        </mat-checkbox>
+
+      </div>
+    </mat-card>
+
+    <button mat-raised-button [mat-dialog-close]="true" type="submit" color="primary">Izmeni oglas</button>
+  </form>
+</mat-dialog-content>
